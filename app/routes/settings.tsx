@@ -18,7 +18,7 @@ export default function Settings() {
             {/* Sidebar */}
             <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} />
 
-            <main className=" ml-60  max-w-4xl mx-auto px-6 py-8">
+            <main className=" ml-56  max-w-4xl mx-auto px-6 py-8">
 
                 {/* ── Header ── */}
                 <div className="mb-6">

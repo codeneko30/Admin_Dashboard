@@ -104,7 +104,7 @@ export default function DashboardPage() {
 
             <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} />
 
-            <main className="max-w-5xl mx-auto px-6 py-8 space-y-6">
+            <main className=" ml-56 max-w-5xl mx-auto px-6 py-8 space-y-6">
 
                 {/* Header */}
                 <div className="flex justify-between items-start">
