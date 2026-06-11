@@ -1,6 +1,10 @@
-export default function BackToProducts() {
+
+export default function BackButton({ label = "Back",  }) {
     return (
-      <button className="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 mb-4 transition-colors">
+      <button
+      
+        className="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 mb-4 transition-colors"
+      >
         <svg
           className="w-3.5 h-3.5"
           fill="none"
@@ -15,7 +19,7 @@ export default function BackToProducts() {
           />
         </svg>
   
-        Products
+        {label}
       </button>
     );
   }

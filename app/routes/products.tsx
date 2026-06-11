@@ -1,11 +1,11 @@
 
-
-
 import { useState } from "react";
+import { Link } from "react-router";
 import Sidebar from "../components/Sidebar";
-import Table2 from "~/components/Table-2";
+import ProductTable from "~/components/ProductsTable";
 import PreviousButton from "~/components/PreviousButton";
 import NextButton from "~/components/NextButton";
+import BlackButton from "~/components/BlackButton";
 
 const products = [
     {
@@ -87,18 +87,18 @@ export default function ProductsPage() {
     const [search, setSearch] = useState("");
     const [selected, setSelected] = useState("All");
 
-    
+
 
     const filteredProducts = products.filter((product) => {
         const matchSearch =
-          product.name.toLowerCase().includes(search.toLowerCase()) ||
-          product.sku.toLowerCase().includes(search.toLowerCase());
-      
+            product.name.toLowerCase().includes(search.toLowerCase()) ||
+            product.sku.toLowerCase().includes(search.toLowerCase());
+
         const matchStatus =
-          selected === "All" || product.status === selected;
-      
+            selected === "All" || product.status === selected;
+
         return matchSearch && matchStatus;
-      });
+    });
 
     return (
         <div className="flex min-h-screen bg-white">
@@ -119,10 +119,15 @@ export default function ProductsPage() {
                             Manage your store's catalog.
                         </p>
                     </div>
+                    {/* add button */}
 
-                    <button className="rounded-md bg-black px-4 py-2 text-sm font-medium text-white">
-                        Add Product
-                    </button>
+                    {/* <BlackButton label="Add Product" /> */}
+
+                    <Link to="/add-product">
+                        <BlackButton label="Add Product" />
+                    </Link>
+
+
                 </div>
 
                 {/* Search + Filter */}
@@ -149,8 +154,8 @@ export default function ProductsPage() {
                 </div>
 
                 {/* Table */}
-                
-                <Table2 data={filteredProducts}/>
+
+                <ProductTable data={filteredProducts} />
 
                 {/* Footer */}
                 <div className="mt-4 flex items-center justify-between">
@@ -160,12 +165,12 @@ export default function ProductsPage() {
 
                     <div className="flex gap-2">
 
-                        
-                      {/* Previous Button */}
-                        <PreviousButton/>
+
+                        {/* Previous Button */}
+                        <PreviousButton />
 
                         {/* Next Button */}
-                        <NextButton/>
+                        <NextButton />
 
                     </div>
                 </div>

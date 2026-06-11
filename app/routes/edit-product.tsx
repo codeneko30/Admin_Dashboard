@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Sidebar from "~/components/Sidebar";
-import BackToProducts from "~/components/BackToProducts";
+
+import BackButton from "~/components/BackButton";
 import SecondaryButton from "../components/SecondaryButton";
 import BlackButton from "~/components/BlackButton";
 import ProductDetails from "~/components/ProductDetails";
@@ -25,7 +26,7 @@ export default function AddProductPage() {
 
             <main className=" ml-60 max-w-4xl mx-auto px-6 py-8">
 
-                <BackToProducts />
+              <BackButton label="products"/>
 
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-2xl font-bold text-gray-900">Edit product</h1>

@@ -1,20 +1,34 @@
 import { type RouteConfig, index, route } from "@react-router/dev/routes";
 
 export default [
-    
+    // Dashboard
     index("routes/dashboard.tsx"),
-   
-    route('test','routes/test.tsx'),
-    route("test-2",'routes/test-2.tsx'),
-    route("test-3","routes/test-3.tsx"),
-    route('order-details','routes/order-details.tsx'),
-    route('orders','routes/orders.tsx'),
-    route("products","routes/products.tsx"),
-    route('settings','routes/settings.tsx'),
-    route("add-product","routes/add-product.tsx"),
-    route("edit-product","routes/edit-product.tsx")
+    // Test
+    route('test', 'routes/test.tsx'),
+    route("test-2", 'routes/test-2.tsx'),
+    route("test-3", "routes/test-3.tsx"),
 
-  
+    // Orders
+    route('orders', 'routes/orders.tsx'),
+    route('order-details', 'routes/order-details.tsx'),
+
+    // Products
+    route("products", "routes/products.tsx"),
+    route("add-product", "routes/add-product.tsx"),
+    route("edit-product", "routes/edit-product.tsx"),
+
+    // Customers
+    route("customers","routes/customers.tsx"),
+    route("add-customer","routes/add-customer.tsx"),
+
+
+
+    // Settings
+    route('settings', 'routes/settings.tsx'),
+
+
+
+
 
 
 ] satisfies RouteConfig;
