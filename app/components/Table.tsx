@@ -1,7 +1,7 @@
 
 
 
-import React from "react";
+import { Link } from "react-router";
 
 type Order = {
   id: number;
@@ -10,8 +10,8 @@ type Order = {
   product: string;
   orderDate: string;
   total: number;
- 
-  status: "Paid" | "Pending" | "Refunded" 
+
+  status: "Paid" | "Pending" | "Refunded"
 };
 
 
@@ -45,7 +45,10 @@ export default function Table({ data }: TableProps) {
             >
               {/* CUSTOMER */}
               <td className="px-5 py-4">
-                <div className="flex items-center gap-3">
+
+                {/* before link */}
+
+                {/* <div className="flex items-center gap-3">
                   <img
                     src={order.avatar}
                     alt={order.customer}
@@ -54,7 +57,22 @@ export default function Table({ data }: TableProps) {
                   <span className="text-sm font-medium text-gray-900">
                     {order.customer}
                   </span>
-                </div>
+                </div> */}
+
+                <Link
+                  to={`/order-details/${order.id}`}
+                  className="flex items-center gap-3"
+                >
+                  <img
+                    src={order.avatar}
+                    alt={order.customer}
+                    className="h-8 w-8 rounded-full object-cover"
+                  />
+                  <span className="text-sm font-medium text-gray-900">
+                    {order.customer}
+                  </span>
+                </Link>
+
               </td>
 
               {/* PRODUCT */}

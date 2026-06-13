@@ -83,6 +83,9 @@ const products = [
 ];
 
 export default function ProductsPage() {
+
+ 
+
     const [activeItem, setActiveItem] = useState("");
     const [search, setSearch] = useState("");
     const [selected, setSelected] = useState("All");
@@ -155,8 +158,10 @@ export default function ProductsPage() {
 
                 {/* Table */}
 
-                <ProductTable data={filteredProducts} />
+               
+                 <ProductTable data={filteredProducts} /> 
 
+                
                 {/* Footer */}
                 <div className="mt-4 flex items-center justify-between">
                     <p className="text-sm text-gray-500">

@@ -1,5 +1,5 @@
 
-
+import { Link } from "react-router";
 type Customer = {
   id: number;
   name: string;
@@ -38,7 +38,11 @@ export default function CustomerTable({ data }: CustomerTableProps) {
             >
               {/* Customer */}
               <td className="px-5 py-4">
-                <div className="flex items-center gap-3">
+
+                {/* before link */}
+
+                {/* <div className="flex items-center gap-3">
+
                   <img
                     src={customer.avatar}
                     alt={customer.name}
@@ -48,6 +52,24 @@ export default function CustomerTable({ data }: CustomerTableProps) {
                     {customer.name}
                   </span>
                 </div>
+                 */}
+
+
+                <Link
+                  to={`/customer-details/${customer.id}`}
+                  className="flex items-center gap-3"
+                >
+                  <img
+                    src={customer.avatar}
+                    alt={customer.name}
+                    className="w-8 h-8 rounded-full object-cover"
+                  />
+                  <span className="text-sm font-semibold text-gray-900">
+                    {customer.name}
+                  </span>
+                </Link>
+
+
               </td>
 
               {/* Email */}

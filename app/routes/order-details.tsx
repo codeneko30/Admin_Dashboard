@@ -1,9 +1,9 @@
 
 
-
+import { useParams } from "react-router";
 import { useState } from "react";
 import {
-  ChevronLeft,
+
   Package,
   CreditCard,
   MapPin,
@@ -11,9 +11,9 @@ import {
 } from "lucide-react";
 
 import Sidebar from "../components/Sidebar";
+import BackButton from "~/components/BackButton";
 
 export default function OrderDetails() {
-  const [activeItem, setActiveItem] = useState("");
 
   const order = {
     number: 3021,
@@ -57,8 +57,13 @@ export default function OrderDetails() {
     ],
   };
 
+
+
+  const [activeItem, setActiveItem] = useState("");
+  const { id } = useParams()
+
   return (
-    
+
     <div className="flex min-h-screen bg-gray-50">
 
       {/* Sidebar (fixed) */}
@@ -69,11 +74,10 @@ export default function OrderDetails() {
 
         <div className="mx-auto max-w-7xl">
 
-          {/* Back */}
-          <button className="mb-4 flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700">
-            <ChevronLeft size={16} />
-            Orders
-          </button>
+          {/* Back orders */}
+
+
+          <BackButton label="orders" />
 
           {/* Header */}
           <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">

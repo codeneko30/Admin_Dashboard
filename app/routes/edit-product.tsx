@@ -1,4 +1,4 @@
-
+import { useParams } from "react-router";
 
 import { useState } from "react";
 import Sidebar from "~/components/Sidebar";
@@ -14,10 +14,12 @@ import OrganizationSection from "~/components/OrganizationSection";
 
 
 
-export default function AddProductPage() {
+export default function EditProductPage() {
 
 
     const [activeItem, setActiveItem] = useState("");
+    // 👇 URL থেকে id নিচ্ছি
+    const { id } = useParams();
 
     return (
         <div className="min-h-screen bg-white font-sans">
@@ -26,9 +28,16 @@ export default function AddProductPage() {
 
             <main className=" ml-60 max-w-4xl mx-auto px-6 py-8">
 
-              <BackButton label="products"/>
+                <BackButton label="products" />
+
+                <p className="text-sm text-gray-500 mb-2">
+                    Product ID: {id}
+                </p>
+
+
 
                 <div className="flex justify-between items-center mb-6">
+
                     <h1 className="text-2xl font-bold text-gray-900">Edit product</h1>
                     <div className="flex gap-2">
                         <SecondaryButton label="Delete" />
@@ -44,23 +53,23 @@ export default function AddProductPage() {
                         <ProductDetails />
 
                         {/* Media Card */}
-                        <MediaSection/>
+                        <MediaSection />
 
                         {/* Pricing Card */}
-                        <PricingSection/>
+                        <PricingSection />
                     </div>
 
                     <div className="col-span-1 space-y-5">
 
                         {/* status card */}
 
-                       <StatusCard/>
+                        <StatusCard />
 
-                       {/* Organization */}
+                        {/* Organization */}
 
-                       <OrganizationSection/>
+                        <OrganizationSection />
 
-                        
+
                     </div>
                 </div>
             </main>

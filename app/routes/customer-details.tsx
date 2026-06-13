@@ -1,4 +1,5 @@
 
+import { useParams } from "react-router";
 import { useState } from "react";
 import Sidebar from "~/components/Sidebar";
 import BackButton from "~/components/BackButton";
@@ -25,6 +26,8 @@ export default function CustomerDetailPage() {
     };
 
     const [activeItem, setActiveItem] = useState("");
+
+    const { id } = useParams();
 
     return (
         <div className="min-h-screen bg-white font-sans">

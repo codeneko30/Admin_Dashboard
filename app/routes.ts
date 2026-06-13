@@ -10,16 +10,17 @@ export default [
 
     // Orders
     route('orders', 'routes/orders.tsx'),
-    route('order-details', 'routes/order-details.tsx'),
+    route('order-details/:id', 'routes/order-details.tsx'),
 
     // Products
     route("products", "routes/products.tsx"),
     route("add-product", "routes/add-product.tsx"),
-    route("edit-product", "routes/edit-product.tsx"),
+    route("edit-product/:id", "routes/edit-product.tsx"),
 
     // Customers
     route("customers","routes/customers.tsx"),
     route("add-customer","routes/add-customer.tsx"),
+    route("customer-details/:id","routes/customer-details.tsx"),
 
 
 
