@@ -1,124 +1,123 @@
 
 
+
 import { Link } from "react-router";
 
-type Product = {
+type Order = {
   id: number;
-  name: string;
+  customer: string;
   avatar: string;
-  sku: string;
-  price: number;
-  stock: number;
-  status: "Active" | "Pending" | "Draft" | "out-of-stock";
+  product: string;
+  orderDate: string;
+  total: number;
+
+  status: "Paid" | "Pending" | "Refunded"
 };
 
+
+
 interface TableProps {
-  data: Product[];
+  data: Order[];
 }
 
-export default function ProductTable({ data }: TableProps) {
+
+export default function Table({ data }: TableProps) {
   return (
     <div className="overflow-hidden rounded-lg border border-gray-200">
       <table className="w-full">
-
         {/* HEADER */}
         <thead className="bg-gray-50">
           <tr className="border-b border-gray-200 text-left text-xs text-gray-500">
+            <th className="px-5 py-3 font-medium">Customer</th>
             <th className="px-5 py-3 font-medium">Product</th>
-            <th className="px-5 py-3 font-medium">SKU</th>
-            <th className="px-5 py-3 font-medium">Price</th>
-            <th className="px-5 py-3 font-medium">Stock</th>
+            <th className="px-5 py-3 font-medium">Order Date</th>
+            <th className="px-5 py-3 font-medium">Total</th>
             <th className="px-5 py-3 font-medium">Status</th>
           </tr>
         </thead>
 
         {/* BODY */}
         <tbody>
-          {data.map((product) => (
+          {data.map((order) => (
             <tr
-              key={product.id}
+              key={order.id}
               className="border-b border-gray-100 hover:bg-gray-50"
             >
-
-              {/* PRODUCT */}
+              {/* CUSTOMER */}
               <td className="px-5 py-4">
+
                 {/* before link */}
+
                 {/* <div className="flex items-center gap-3">
                   <img
-                    src={product.avatar}
-                    alt={product.name}
+                    src={order.avatar}
+                    alt={order.customer}
                     className="h-8 w-8 rounded-full object-cover"
                   />
                   <span className="text-sm font-medium text-gray-900">
-                    {product.name}
+                    {order.customer}
                   </span>
-
-                  
                 </div> */}
 
                 <Link
-                  to={`/edit-product/${product.id}`}
+                  to={`/order-details/${order.id}`}
                   className="flex items-center gap-3"
                 >
                   <img
-                    src={product.avatar}
-                    alt={product.name}
+                    src={order.avatar}
+                    alt={order.customer}
                     className="h-8 w-8 rounded-full object-cover"
                   />
-
                   <span className="text-sm font-medium text-gray-900">
-                    {product.name}
+                    {order.customer}
                   </span>
                 </Link>
 
               </td>
 
-
-
-              {/* SKU */}
-              <td className="px-5 py-4 text-sm text-gray-500">
-                {product.sku}
-              </td>
-
-              {/* PRICE */}
-              <td className="px-5 py-4 text-sm font-semibold text-gray-900">
-                ${product.price.toFixed(2)}
-
-
-              </td>
-
-              {/* STOCK */}
+              {/* PRODUCT */}
               <td className="px-5 py-4 text-sm text-gray-700">
-                {product.stock}
+                {order.product}
               </td>
 
-              {/* STATUS (same pattern as Orders) */}
+              {/* DATE */}
+              <td className="px-5 py-4 text-sm text-gray-500">
+                {order.orderDate}
+              </td>
 
+              {/* TOTAL */}
+              <td className="px-5 py-4 text-sm font-semibold text-gray-900">
+                ${order.total.toFixed(2)}
+              </td>
+
+              {/* STATUS */}
               <td className="px-5 py-4">
-                {product.status === "out-of-stock" ? (
+                {order.status === "Refunded" ? (
                   <span className="inline-flex rounded-full bg-red-500 px-2 py-1 text-xs font-medium text-white">
-                    Out of stock
+                    Refunded
                   </span>
-                ) : product.status === "Pending" ? (
+                ) : order.status === "Pending" ? (
                   <span className="inline-flex rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700">
                     Pending
                   </span>
-                ) : product.status === "Draft" ? (
-                  <span className="inline-flex rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-400">
-                    Draft
-                  </span>
                 ) : (
                   <span className="inline-flex rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-900">
-                    Active
+                    Paid
                   </span>
                 )}
               </td>
-
             </tr>
           ))}
         </tbody>
-
       </table>
     </div>
   );
 }
+
+
+
+
+
+
+
+

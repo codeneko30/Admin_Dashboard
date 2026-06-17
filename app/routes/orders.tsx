@@ -1,11 +1,17 @@
 
 
+
+
+
 import { useState } from "react";
+
 import Sidebar from "../components/Sidebar";
-import Table from "../components/Table";
+import BottomNav from "../components/BottomNav";
+import MobileOrdersTable from "../components/Mobile-OrdersTable";
+import DesktopOrdersTable from "../components/Desktop-OrdersTable";
 import ExportButton from "~/components/ExportButton";
-import PreviousButton from "~/components/PreviousButton";
 import NextButton from "~/components/NextButton";
+import PreviousButton from "~/components/PreviousButton";
 
 const orders = [
   {
@@ -53,7 +59,6 @@ const orders = [
     total: 65,
     status: "Refunded",
   },
-
   {
     id: 6,
     customer: "Lucas Hartmann",
@@ -93,84 +98,178 @@ const orders = [
 ];
 
 export default function OrdersPage() {
-  const [activeItem, setActiveItem] = useState("");
+  const [activeItem, setActiveItem] = useState("Orders");
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState("All");
 
   const filteredOrders = orders.filter((order) => {
+    const q = search.toLowerCase();
+
     const matchSearch =
-      order.customer.toLowerCase().includes(search.toLowerCase()) ||
-      order.product.toLowerCase().includes(search.toLowerCase());
+      order.customer.toLowerCase().includes(q) ||
+      order.product.toLowerCase().includes(q);
 
     const matchStatus =
-      selected === "All" || order.status === selected;
+      selected === "All" ||
+      order.status === selected;
 
     return matchSearch && matchStatus;
   });
 
   return (
-    <div className="flex min-h-screen bg-white">
+    <>
+      {/* DESKTOP */}
+      <div className="hidden md:flex min-h-screen bg-white">
 
-      <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} />
+        <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} />
 
-      <main className="ml-56 flex-1 p-8">
-        {/* HEADER */}
-        <div className="mb-6 flex items-start justify-between">
-          <div>
-            <h1 className="text-2xl font-bold">Orders</h1>
-            <p className="mt-1 text-sm text-gray-500">
-              Manage and track customer orders.
+
+        <main className="ml-56 flex-1 p-8">
+
+          {/* HEADER */}
+          <div className="mb-6 flex items-start justify-between gap-3">
+
+            <div className="min-w-0">
+
+              <h1 className="text-2xl font-bold text-gray-900">
+                Orders
+              </h1>
+
+              <p className="mt-1 text-sm text-gray-500">
+                Manage and track customer orders.
+              </p>
+
+            </div>
+
+            {/* export button */}
+            <ExportButton />
+
+          </div>
+
+          {/* SEARCH */}
+          <div className="mb-4 flex gap-2">
+
+            <input
+              value={search}
+              onChange={(e) =>
+                setSearch(e.target.value)
+              }
+              placeholder="Search orders..."
+              className="flex-1 rounded-md border border-gray-200 px-3 py-2 text-sm  outline-none focus:border-gray-400" />
+
+
+            <select
+              value={selected}
+              onChange={(e) =>
+                setSelected(e.target.value)
+              }
+              className="w-40 rounded-md border border-gray-200 px-3 py-2 text-sm text-gray-600 ">
+
+              <option>All</option>
+              <option>Paid</option>
+              <option>Pending</option>
+              <option>Refunded</option>
+            </select>
+
+          </div>
+          {/* desktop orders table */}
+          <DesktopOrdersTable data={filteredOrders} />
+
+
+
+
+          {/* FOOTER */}
+          <div className="mt-4 flex items-center justify-between">
+
+            <p className="text-sm text-gray-500">
+              Showing 1–{filteredOrders.length} of {orders.length} orders
             </p>
-          </div>
 
-          {/* export button */}
+            <div className="flex gap-2">
 
-          
-          <ExportButton />
+              {/* previous */}
+              <PreviousButton />
 
-        </div>
+              {/* next */}
+              <NextButton />
 
-        {/* SEARCH */}
-        <div className="mb-4 flex gap-2">
-          <input
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search orders..."
-            className="flex-1 rounded-md border border-gray-200 px-3 py-2 text-sm outline-none focus:border-gray-400"
-          />
-
-          <select
-            value={selected}
-            onChange={(e) => setSelected(e.target.value)}
-            className="w-40 rounded-md border border-gray-200 px-3 py-2 text-sm"
-          >
-            <option>All</option>
-            <option>Paid</option>
-            <option>Pending</option>
-            <option>Refunded</option>
-          </select>
-        </div>
-
-        {/* TABLE (REUSABLE) */}
-        <Table data={filteredOrders} />
-
-        {/* FOOTER */}
-        <div className="mt-4 flex items-center justify-between">
-          <p className="text-sm text-gray-500">
-            Showing 1–{filteredOrders.length} of 142 orders
-          </p>
-
-          <div className="flex gap-2">
-
-           {/* previous Button */}
-            <PreviousButton/>
-
-            {/* Next Button */}
-            <NextButton/>
+            </div>
 
           </div>
+
+
+        </main>
+
+
+
+      </div>
+
+      {/* MOBILE */}
+      <div className="md:hidden min-h-screen bg-white font-sans">
+
+        <div className="pb-20">
+
+          <div className="mx-auto max-w-5xl px-4 pt-5">
+
+            {/* HEADER */}
+            <div className="mb-4 flex items-start justify-between gap-3">
+
+              <div className="min-w-0">
+
+                <h1 className="text-sm font-semibold text-gray-900">
+                  Orders
+                </h1>
+
+                <p className="mt-0.5 text-xs text-gray-500">
+                  Search and manage orders.
+                </p>
+
+              </div>
+
+              {/* export button */}
+
+              <ExportButton />
+
+            </div>
+
+            {/* SEARCH */}
+            <div className="mb-3 flex gap-2">
+
+              <input
+                value={search}
+                onChange={(e) =>
+                  setSearch(e.target.value)
+                }
+                placeholder="Search orders..."
+                className="flex-1 rounded-md border  border-gray-200 px-3 py-2 text-sm  outline-none " />
+
+
+              <select
+                value={selected}
+                onChange={(e) =>
+                  setSelected(e.target.value)
+                }
+                className=" w-[120px] rounded-md border  border-gray-200 px-3 py-2 text-sm  text-gray-600">
+
+                <option>All</option>
+                <option>Paid</option>
+                <option>Pending</option>
+                <option>Refunded</option>
+              </select>
+
+            </div>
+
+            <MobileOrdersTable data={filteredOrders} />
+
+
+          </div>
+
         </div>
-      </main>
-    </div>
+
+        <BottomNav activeItem={activeItem} etActiveItem={setActiveItem} />
+
+
+      </div>
+    </>
   );
 }

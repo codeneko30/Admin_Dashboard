@@ -1,7 +1,15 @@
-export default function ExportButton() {
+
+
+
+
+
+  export default function ExportButton() {
     return (
-      <button className="bg-gray-900 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-black">
-        Export
-      </button>
+        <button
+            className="px-3 sm:px-4 py-2 text-xs sm:text-sm rounded-md   bg-black    text-white transition  hover:bg-gray-800 ">
+               
+        
+            Export
+        </button>
     );
-  }
+}

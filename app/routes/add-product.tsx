@@ -1,13 +1,17 @@
+
+
 import { useState } from "react";
 import Sidebar from "~/components/Sidebar";
-import BackButton from "~/components/BackButton";
-import SecondaryButton from "../components/SecondaryButton";
-import BlackButton from "~/components/BlackButton";
+import BottomNav from "~/fully-codebase/responsive-admin/botom-nav";
+import DesktopBackButton from "~/components/Desktop-BackButton";
+import DesktopSecondaryButton from "../components/Desktop-SecondaryButton";
+import DesktopBlackButton from "~/components/Desktop-BlackButton";
 import ProductDetails from "~/components/ProductDetails";
 import MediaSection from "~/components/MediaSection";
 import PricingSection from "~/components/PricingSection";
 import StatusCard from "~/components/StatusCard";
 import OrganizationSection from "~/components/OrganizationSection";
+import { ChevronLeft, Search, ChevronDown, Image } from "lucide-react";
 
 
 
@@ -16,49 +20,84 @@ export default function AddProductPage() {
 
     const [activeItem, setActiveItem] = useState("");
 
+
+
     return (
-        <div className="min-h-screen bg-white font-sans">
+        <div className="min-h-screen bg-gray-50 font-sans">
+
+            {/* ── Mobile sticky header (hidden on md+) ── */}
+            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 bg-white px-4 py-3 md:hidden">
+                <button className="text-gray-500" aria-label="Back">
+                    <ChevronLeft size={20} />
+                </button>
+                <h1 className="text-base font-semibold text-gray-900">Add product</h1>
+                <Search size={20} className="text-gray-400" />
+            </div>
 
             <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} />
 
-            <main className=" ml-60 max-w-4xl mx-auto px-6 py-8">
+            <main className="mx-auto max-w-4xl px-4 py-4 md:ml-60 md:px-6 md:py-8">
 
-                <BackButton label="product"/>
+                {/* Back button (hidden on mobile) */}
 
-                <div className="flex justify-between items-center mb-6">
-                    <h1 className="text-2xl font-bold text-gray-900">Add product</h1>
-                    <div className="flex gap-2">
-                        <SecondaryButton label="Discard" />
-                        <BlackButton label="Save Product" />
+                <DesktopBackButton label='  Products' />
+
+                {/* ── Header ── */}
+                <div className="mb-6 flex items-center justify-between gap-4">
+                    <h1 className="text-2xl font-semibold text-gray-900 hidden md:block  ">Add product</h1>
+
+                    {/* Desktop action buttons (hidden on mobile) */}
+                    <div className="hidden gap-2 md:flex">
+
+
+                        <DesktopSecondaryButton label='Discard' />
+
+
+                        <DesktopBlackButton label='Save product' />
+
                     </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-5">
+                {/* ── Main Grid ── */}
+                <div className="grid gap-5 lg:grid-cols-3">
 
-                    <div className="col-span-2 space-y-5">
+                    {/* ── Left Column ── */}
+                    <div className="space-y-5 lg:col-span-2">
 
+                        {/* Product Details */}
                         <ProductDetails />
 
-                        {/* Media Card */}
-                        <MediaSection/>
+                        {/* Media */}
 
-                        {/* Pricing Card */}
-                        <PricingSection/>
+                        <MediaSection />
+
+                        {/* Pricing */}
+                        <PricingSection />
                     </div>
 
-                    <div className="col-span-1 space-y-5">
+                    {/* ── Right Column ── */}
+                    <div className="space-y-5">
 
-                        {/* status card */}
+                        {/* Status */}
+                        <StatusCard />
 
-                       <StatusCard/>
-
-                       {/* Organization */}
-
-                       <OrganizationSection/>
-
-                        
+                        {/* Organization */}
+                        <OrganizationSection />
                     </div>
                 </div>
+
+                {/* ── Mobile bottom Save button (hidden on md+) ── */}
+                <div id="1" className="mt-6 md:hidden mb-20">
+                    <button className="w-full rounded-xl bg-gray-900 py-3.5 text-sm font-medium text-white transition-colors hover:bg-gray-800">
+                        Save product
+                    </button>
+                </div>
+
+                <div id="2">
+                    <BottomNav activeItem={activeItem} setActiveItem={setActiveItem} />
+                </div>
+
+
             </main>
         </div>
     );

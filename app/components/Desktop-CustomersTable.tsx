@@ -117,3 +117,10 @@ export default function CustomerTable({ data }: CustomerTableProps) {
     </div>
   );
 }
+
+
+
+
+
+
+
