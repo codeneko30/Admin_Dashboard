@@ -4,14 +4,13 @@
 
 
 import { useState } from "react";
-import { useParams } from "react-router";
 import Sidebar from "~/components/Sidebar";
 import BottomNav from "~/components/BottomNav";
-import Items from "~/components/Items";
-import Timeline from "~/components/TimeLine";
-import DesktopBackButton from "../components/Desktop-BackButton"
+import Items from "./_components/Items";
+import Timeline from "./_components/TimeLine";
+import DesktopBackButton from "~/components/Desktop-BackButton"
 import DesktopBlackButton from "~/components/Desktop-BlackButton";
-import DesktopSecondaryButton from "../components/Desktop-SecondaryButton"
+import DesktopSecondaryButton from "~/components/Desktop-SecondaryButton"
 import {
   ChevronLeft,
   Search,
@@ -21,6 +20,8 @@ import {
   User,
 } from "lucide-react";
 
+
+export function loader(){
 const order = {
   number: 3021,
   status: "Paid",
@@ -53,11 +54,14 @@ const order = {
 
  
 };
+return order
 
-export default function OrderDetails() {
+}
+
+export default function OrderDetails({loaderData}) {
+  const order = loaderData
   const [activeItem, setActiveItem] = useState("");
-  const { id } = useParams()
-
+  
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
 

@@ -2,25 +2,17 @@
 
 import { Link } from "react-router";
 import { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import BottomNav from "../components/BottomNav";
-import DesktopProductsTable from "../components/Desktop-ProductsTable";
-import MobileProductsTable from "../components/Mobile-ProductsTable";
+import Sidebar from "../../../components/Sidebar";
+import BottomNav from "../../../components/BottomNav";
+import DesktopProductsTable from "./_components/Desktop-ProductsTable"
+import MobileProductsTable from "./_components/Mobile-ProductsTable";
 import PreviousButton from "~/components/PreviousButton";
 import NextButton from "~/components/NextButton";
 import DesktopBlackButton from "~/components/Desktop-BlackButton";
-import MobileBlackButton from "../components/Mobile-BlackButton"
+import MobileBlackButton from "../../../components/Mobile-BlackButton"
 
-export default function ProductsPage() {
-  const [activeItem, setActiveItem] =
-    useState("Products");
 
-  const [search, setSearch] =
-    useState("");
-
-  const [selected, setSelected] =
-    useState("All");
-
+export function loader() {
   const products = [
     {
       id: 1,
@@ -103,21 +95,31 @@ export default function ProductsPage() {
       status: "Active",
     },
   ];
+  return products
+
+}
+
+
+
+export default function ProductsPage({ loaderData }) {
+  const products = loaderData
+  const [activeItem, setActiveItem] = useState("Products");
+  const [search, setSearch] = useState("");
+  const [selected, setSelected] = useState("All");
+
+
 
   const filteredProducts = products.filter((p) => {
-
     const q = search.toLowerCase();
-
-
     const matchSearch = p.name.toLowerCase().includes(q) || p.sku.toLowerCase().includes(q);
-
     const matchStatus = selected === "All" || p.status === selected;
-
     return (
       matchSearch && matchStatus
 
     );
   });
+
+
 
   return (
 
@@ -143,7 +145,7 @@ export default function ProductsPage() {
 
 
             {/* add product  */}
-           
+
 
             <Link to="/add-product">
               <DesktopBlackButton label="Add Product" />
@@ -222,10 +224,10 @@ export default function ProductsPage() {
 
             {/* add product */}
             <Link to='/add-product'>
-            <MobileBlackButton label="Add product" />
+              <MobileBlackButton label="Add product" />
 
             </Link>
-           
+
 
 
           </div>

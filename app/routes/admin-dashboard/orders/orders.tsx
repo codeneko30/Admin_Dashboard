@@ -4,100 +4,108 @@
 
 
 import { useState } from "react";
-
-import Sidebar from "../components/Sidebar";
-import BottomNav from "../components/BottomNav";
-import MobileOrdersTable from "../components/Mobile-OrdersTable";
-import DesktopOrdersTable from "../components/Desktop-OrdersTable";
+import Sidebar from "../../../components/Sidebar";
+import BottomNav from "../../../components/BottomNav";
+import MobileOrdersTable from "../../../components/Mobile-OrdersTable";
+import DesktopOrdersTable from "../../../components/Desktop-OrdersTable";
 import ExportButton from "~/components/ExportButton";
 import NextButton from "~/components/NextButton";
 import PreviousButton from "~/components/PreviousButton";
 
-const orders = [
-  {
-    id: 1,
-    customer: "Olivia Bennett",
-    avatar: "https://i.pravatar.cc/40?img=1",
-    product: "Wireless Headphones",
-    orderDate: "2026-02-08",
-    total: 249,
-    status: "Paid",
-  },
-  {
-    id: 2,
-    customer: "Marcus Chen",
-    avatar: "https://i.pravatar.cc/40?img=2",
-    product: "Smart Watch Pro",
-    orderDate: "2026-02-07",
-    total: 499,
-    status: "Paid",
-  },
-  {
-    id: 3,
-    customer: "Sofia Reyes",
-    avatar: "https://i.pravatar.cc/40?img=3",
-    product: "Leather Backpack",
-    orderDate: "2026-02-07",
-    total: 189,
-    status: "Pending",
-  },
-  {
-    id: 4,
-    customer: "Jordan Wright",
-    avatar: "https://i.pravatar.cc/40?img=4",
-    product: "Ceramic Coffee Set",
-    orderDate: "2026-02-06",
-    total: 84,
-    status: "Paid",
-  },
-  {
-    id: 5,
-    customer: "Aisha Patel",
-    avatar: "https://i.pravatar.cc/40?img=5",
-    product: "Yoga Mat Bundle",
-    orderDate: "2026-02-05",
-    total: 65,
-    status: "Refunded",
-  },
-  {
-    id: 6,
-    customer: "Lucas Hartmann",
-    avatar: "https://i.pravatar.cc/40?img=6",
-    product: "Standing Desk",
-    orderDate: "2026-02-04",
-    total: 620,
-    status: "Paid",
-  },
-  {
-    id: 7,
-    customer: "Emma Johansson",
-    avatar: "https://i.pravatar.cc/40?img=7",
-    product: "Desk Lamp",
-    orderDate: "2026-02-03",
-    total: 48,
-    status: "Pending",
-  },
-  {
-    id: 8,
-    customer: "Noah Kim",
-    avatar: "https://i.pravatar.cc/40?img=8",
-    product: "Mechanical Keyboard",
-    orderDate: "2026-02-02",
-    total: 129,
-    status: "Paid",
-  },
-  {
-    id: 9,
-    customer: "Mia Rossi",
-    avatar: "https://i.pravatar.cc/40?img=9",
-    product: "Linen Bedding Set",
-    orderDate: "2026-02-01",
-    total: 215,
-    status: "Paid",
-  },
-];
-
-export default function OrdersPage() {
+export function loader(){
+  const orders = [
+    {
+      id: 1,
+      customer: "Olivia Bennett",
+      avatar: "https://i.pravatar.cc/40?img=1",
+      product: "Wireless Headphones",
+      orderDate: "2026-02-08",
+      total: 249,
+      status: "Paid",
+    },
+    {
+      id: 2,
+      customer: "Marcus Chen",
+      avatar: "https://i.pravatar.cc/40?img=2",
+      product: "Smart Watch Pro",
+      orderDate: "2026-02-07",
+      total: 499,
+      status: "Paid",
+    },
+    {
+      id: 3,
+      customer: "Sofia Reyes",
+      avatar: "https://i.pravatar.cc/40?img=3",
+      product: "Leather Backpack",
+      orderDate: "2026-02-07",
+      total: 189,
+      status: "Pending",
+    },
+    {
+      id: 4,
+      customer: "Jordan Wright",
+      avatar: "https://i.pravatar.cc/40?img=4",
+      product: "Ceramic Coffee Set",
+      orderDate: "2026-02-06",
+      total: 84,
+      status: "Paid",
+    },
+    {
+      id: 5,
+      customer: "Aisha Patel",
+      avatar: "https://i.pravatar.cc/40?img=5",
+      product: "Yoga Mat Bundle",
+      orderDate: "2026-02-05",
+      total: 65,
+      status: "Refunded",
+    },
+    {
+      id: 6,
+      customer: "Lucas Hartmann",
+      avatar: "https://i.pravatar.cc/40?img=6",
+      product: "Standing Desk",
+      orderDate: "2026-02-04",
+      total: 620,
+      status: "Paid",
+    },
+    {
+      id: 7,
+      customer: "Emma Johansson",
+      avatar: "https://i.pravatar.cc/40?img=7",
+      product: "Desk Lamp",
+      orderDate: "2026-02-03",
+      total: 48,
+      status: "Pending",
+    },
+    {
+      id: 8,
+      customer: "Noah Kim",
+      avatar: "https://i.pravatar.cc/40?img=8",
+      product: "Mechanical Keyboard",
+      orderDate: "2026-02-02",
+      total: 129,
+      status: "Paid",
+    },
+    {
+      id: 9,
+      customer: "Mia Rossi",
+      avatar: "https://i.pravatar.cc/40?img=9",
+      product: "Linen Bedding Set",
+      orderDate: "2026-02-01",
+      total: 215,
+      status: "Paid",
+    },
+  
+  
+  ];
+  return orders
+  
+  }
+  
+  
+  
+export default function OrdersPage({loaderData}) {
+  const orders = loaderData
   const [activeItem, setActiveItem] = useState("Orders");
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState("All");
@@ -167,8 +175,9 @@ export default function OrdersPage() {
 
               <option>All</option>
               <option>Paid</option>
-              <option>Pending</option>
-              <option>Refunded</option>
+                <option>Pending</option>
+                <option>Refunded</option>
+
             </select>
 
           </div>

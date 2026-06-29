@@ -2,17 +2,16 @@
 
 import { Link } from "react-router";
 import { useState } from "react";
-
-import Sidebar from "../components/Sidebar";
-import BottomNav from "../components/BottomNav";
-
-import DesktopCustomersTable from "../components/Desktop-CustomersTable";
-import MobileCustomersTable from "../components/Mobile-CustomersTable";
+import Sidebar from "~/components/Sidebar";
+import BottomNav from "../../../components/BottomNav";
+import DesktopCustomersTable from "./_components/Desktop-CustomersTable"
+import  MobileCustomersTable  from "./_components/Mobile-CustomersTable"
 import PreviousButton from "~/components/PreviousButton";
 import NextButton from "~/components/NextButton";
-import DesktopBlackButton from "../components/Desktop-BlackButton"
+import DesktopBlackButton from "~/components/Desktop-BlackButton";
 import MobileBlackButton from "~/components/Mobile-BlackButton";
 
+export function loader(){
 const customers = [
   {
     id: 1,
@@ -94,8 +93,12 @@ const customers = [
     status: "Active",
   },
 ];
+return customers
 
-export default function CustomersPage() {
+}
+
+export default function CustomersPage({loaderData}) {
+const customers = loaderData
   const [activeItem, setActiveItem] = useState("")
   const [search, setSearch] = useState("")
   const [selected, setSelected] = useState("All")
@@ -112,11 +115,8 @@ export default function CustomersPage() {
 
       const matchStatus =
         selected === "All" || customer.status === selected;
-
-
       return (
         matchSearch && matchStatus
-
       );
     });
 

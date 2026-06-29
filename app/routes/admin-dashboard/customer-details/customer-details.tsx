@@ -1,24 +1,26 @@
 
 
 
-import { useParams } from "react-router";
+
 
 import { useState } from "react";
 import Sidebar from "~/components/Sidebar";
 import BottomNav from "~/components/BottomNav";
 import DesktopBlackButton from "~/components/Desktop-BlackButton";
-import DesktopSecondaryButton from "../components/Desktop-SecondaryButton"
-import DesktopBackButton from "../components/Desktop-BackButton"
-import Customer_Details_Stats from "~/components/Customer-Details-Status";
-import RecentOrders from "~/components/RecentOrders";
-import ContactCard from "~/components/ContactCard";
-import DefaultAddress from "~/components/DefaultAddress";
+import DesktopSecondaryButton from "~/components/Desktop-SecondaryButton"
+import DesktopBackButton from "~/components/Desktop-BackButton"
+import Customer_Details_Stats from "./_components/Customer-Details-Status";
+import RecentOrders from "./_components/RecentOrders";
+import ContactCard from "./_components/ContactCard";
+import DefaultAddress from "./_components/DefaultAddress";
+
 import {
     ChevronLeft,
     Search,
     User,
 } from "lucide-react";
 
+export function loader(){
 const customer = {
     name: "Olivia Bennett",
     status: "VIP",
@@ -29,10 +31,14 @@ const customer = {
         sms: "Not subscribed",
     },
 };
+return customer
 
-export default function CustomerDetailPage() {
+}
+
+export default function CustomerDetailPage({loaderData}) {
+    const customer = loaderData
     const [activeItem, setActiveItem] = useState("");
-    const {id} = useParams()
+   
 
     return (
         <div className="min-h-screen bg-gray-50 font-sans">

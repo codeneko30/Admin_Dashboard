@@ -5,10 +5,10 @@ import BottomNav from "~/components/BottomNav";
 import DesktopOrdersTable from "~/components/Desktop-OrdersTable";
 import MobileOrdersTable from "~/components/Mobile-OrdersTable";
 import ExportButton from "~/components/ExportButton";
-import Stats from "~/components/Stats";
+import Stats from "./_components/Stats";
 import Revenue from "~/components/Revenue";
 
-
+export function loader(){
 const orders = [
   {
     id: 1,
@@ -91,12 +91,18 @@ const orders = [
     total: 215,
     status: "Paid",
   },
+
+
 ];
+return orders
+
+}
 
 
 
-export default function DashboardPage() {
+export default function DashboardPage({loaderData}) {
   const [activeItem, setActiveItem] = useState("");
+  const orders = loaderData
 
 
 

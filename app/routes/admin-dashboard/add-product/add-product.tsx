@@ -4,7 +4,7 @@ import { useState } from "react";
 import Sidebar from "~/components/Sidebar";
 import BottomNav from "~/fully-codebase/responsive-admin/botom-nav";
 import DesktopBackButton from "~/components/Desktop-BackButton";
-import DesktopSecondaryButton from "../components/Desktop-SecondaryButton";
+import DesktopSecondaryButton from "../../../components/Desktop-SecondaryButton";
 import DesktopBlackButton from "~/components/Desktop-BlackButton";
 import ProductDetails from "~/components/ProductDetails";
 import MediaSection from "~/components/MediaSection";

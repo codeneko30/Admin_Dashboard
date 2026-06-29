@@ -6,34 +6,37 @@ export default [
 
 
     // Dashboard
-    index("routes/dashboard.tsx"),
+    index("routes/admin-dashboard/dashboard/dashboard.tsx"),
     // Test
     route('test', 'routes/test.tsx'),
     route("test-2", 'routes/test-2.tsx'),
     route("test-3", "routes/test-3.tsx"),
 
     // Orders
-    route('orders', 'routes/orders.tsx'),
-    route('order-details/:id', 'routes/order-details.tsx'),  
+    route('orders', 'routes/admin-dashboard/orders/orders.tsx'),
+    route('order-details/:id', 'routes/admin-dashboard/order-details/order-details.tsx'), 
+    
+        
+      
 
     // Products
-    route("products", "routes/products.tsx"),
-    route("add-product", "routes/add-product.tsx"),
-    route("edit-product/:id", "routes/edit-product.tsx"),
+    route("products", "routes/admin-dashboard/products/products.tsx"),
+    route("add-product", "routes/admin-dashboard/add-product/add-product.tsx"),
+    route("edit-product/:id", "routes/admin-dashboard/edit-product/edit-product.tsx"), 
 
     // Customers
-    route("customers", "routes/customers.tsx"),
-    route("add-customer", "routes/add-customer.tsx"),
-    route("customer-details/:id", "routes/customer-details.tsx"),   
+    route("customers", "routes/admin-dashboard/customers/customers.tsx"),
+    route("add-customer", "routes/admin-dashboard/add-customer/add-customer.tsx"),
+    route("customer-details/:id", "routes/admin-dashboard/customer-details/customer-details.tsx"), 
 
 
 
     // Settings
-    route('settings', 'routes/settings.tsx'),
+    route('settings', 'routes/admin-dashboard/settings/settings.tsx'),
 
 
 
-    
+
 
 
 

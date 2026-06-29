@@ -3,10 +3,11 @@
 import { useState } from "react";
 import Sidebar from "~/components/Sidebar";
 import BottomNav from "~/components/BottomNav";
-import SettingsTabs from "~/components/SettingsTabs";
-import StoreProfile from "~/components/StoreProfile";
-import StoreAddress from "~/components/StoreAddress";
+import SettingsTabs from "./_components/SettingsTabs"
+import StoreProfile from "./_components/StoreProfile"
+import StoreAddress from "./_components/StoreAddress";
 import Branding from "~/components/Branding ";
+
 
 
 
@@ -15,9 +16,9 @@ import Branding from "~/components/Branding ";
 
 export default function Settings() {
     const [activeItem, setActiveItem] = useState("");
-    
 
-    
+
+
 
     return (
         <div className="min-h-screen bg-white font-sans flex">
@@ -47,7 +48,7 @@ export default function Settings() {
 
                 {/* Tabs (scrollable on mobile) */}
 
-                <SettingsTabs/>
+                <SettingsTabs />
 
                 {/* GRID */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
@@ -60,14 +61,14 @@ export default function Settings() {
 
                         {/* Store Profile Card */}
 
-                        <StoreProfile/>
+                        <StoreProfile />
 
 
 
 
                         {/* Store Address Card */}
 
-                       <StoreAddress/>
+                        <StoreAddress />
                     </div>
 
                     {/* RIGHT  */}
@@ -75,7 +76,7 @@ export default function Settings() {
 
                         {/* Branding */}
 
-                        <Branding/>
+                        <Branding />
 
                         {/* Danger zone */}
 

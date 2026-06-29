@@ -6,27 +6,12 @@ import DesktopBackButton from "~/components/Desktop-BackButton";
 import DesktopSecondaryButton from "~/components/Desktop-SecondaryButton";
 import DesktopBlackButton from "~/components/Desktop-BlackButton";
 import CustomerDetails from "~/components/CustomerDetails";
-import Addres from "../components/Address"
-import CustomerStatus from "../components/CustomerStatus"
+import Addres from "~/components/Address"
+import CustomerStatus from "~/components/CustomerStatus"
 import Marketing from "~/components/Marketing";
 import { ChevronLeft, Search, ChevronDown } from "lucide-react";
 
-const statusOptions = ["Active", "VIP", "New", "Inactive"];
 
-function Toggle({ enabled, onToggle }) {
-    return (
-        <button
-            onClick={onToggle}
-            className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors duration-200 focus:outline-none ${enabled ? "bg-gray-900" : "bg-gray-200"
-                }`}
-        >
-            <span
-                className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white shadow transition-transform duration-200 ${enabled ? "translate-x-4" : "translate-x-1"
-                    }`}
-            />
-        </button>
-    );
-}
 
 export default function AddCustomerPage() {
     const [form, setForm] = useState({
