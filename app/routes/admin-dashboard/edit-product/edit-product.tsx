@@ -113,6 +113,7 @@ import BottomNav from "~/fully-codebase/responsive-admin/botom-nav";
 import DesktopBackButton from "~/components/Desktop-BackButton";
 import DesktopSecondaryButton from "../../../components/Desktop-SecondaryButton";
 import DesktopBlackButton from "~/components/Desktop-BlackButton";
+import Button from "~/components/Button";
 import ProductDetails from "~/components/ProductDetails";
 import MediaSection from "~/components/MediaSection";
 import PricingSection from "~/components/PricingSection";
@@ -134,9 +135,11 @@ export default function EditProductPage() {
 
             {/* ── Mobile sticky header (hidden on md+) ── */}
             <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 bg-white px-4 py-3 md:hidden">
-                <button className="text-gray-500" aria-label="Back">
+
+                <Button className=" bg-white text-gray-500" aria-label="Back">
                     <ChevronLeft size={20} />
-                </button>
+                </Button>
+
                 <h1 className="text-base font-semibold text-gray-900">Edit product</h1>
                 <Search size={20} className="text-gray-400" />
             </div>
@@ -147,7 +150,8 @@ export default function EditProductPage() {
 
                 {/* Back button (hidden on mobile) */}
 
-                <DesktopBackButton label='  Products' />
+                {/* <DesktopBackButton label='  Products' /> */}
+                <Button variant="ghost" size="sm" leftIcon={<ChevronLeft size={16} />} className="mb-4 hidden md:inline-flex">Products</Button>
 
                 {/* ── Header ── */}
                 <div className="mb-6 flex items-center justify-between gap-4">
@@ -157,10 +161,14 @@ export default function EditProductPage() {
                     <div className="hidden gap-2 md:flex">
 
 
-                        <DesktopSecondaryButton label='Discard' />
+                        {/* <DesktopSecondaryButton label='Discard' /> */}
+
+                        <Button variant='secondary'>Discard</Button>
 
 
-                        <DesktopBlackButton label='Save product' />
+                        {/* <DesktopBlackButton label='Save product' /> */}
+
+                        <Button variant='primary'>Save product</Button>
 
                     </div>
                 </div>
@@ -195,9 +203,13 @@ export default function EditProductPage() {
 
                 {/* ── Mobile bottom Save button (hidden on md+) ── */}
                 <div id="1" className="mt-6 md:hidden mb-20">
-                    <button className="w-full rounded-xl bg-gray-900 py-3.5 text-sm font-medium text-white transition-colors hover:bg-gray-800">
+
+                    {/* <button className="w-full rounded-xl bg-gray-900 py-3.5 text-sm font-medium text-white transition-colors hover:bg-gray-800">
                         Save product
-                    </button>
+                    </button> */}
+
+                    <Button fullWidth> Save product</Button>
+
                 </div>
 
                 <div id="2">

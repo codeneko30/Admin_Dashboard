@@ -5,100 +5,101 @@ import { useState } from "react";
 import Sidebar from "~/components/Sidebar";
 import BottomNav from "../../../components/BottomNav";
 import DesktopCustomersTable from "./_components/Desktop-CustomersTable"
-import  MobileCustomersTable  from "./_components/Mobile-CustomersTable"
+import MobileCustomersTable from "./_components/Mobile-CustomersTable"
 import PreviousButton from "~/components/PreviousButton";
 import NextButton from "~/components/NextButton";
 import DesktopBlackButton from "~/components/Desktop-BlackButton";
 import MobileBlackButton from "~/components/Mobile-BlackButton";
+import Button from "~/components/Button";
 
-export function loader(){
-const customers = [
-  {
-    id: 1,
-    name: "Olivia Bennett",
-    avatar: "https://i.pravatar.cc/100?img=1",
-    email: "olivia.bennett@email.com",
-    orders: 12,
-    totalSpent: 2480,
-    status: "Active",
-  },
+export function loader() {
+  const customers = [
+    {
+      id: 1,
+      name: "Olivia Bennett",
+      avatar: "https://i.pravatar.cc/100?img=1",
+      email: "olivia.bennett@email.com",
+      orders: 12,
+      totalSpent: 2480,
+      status: "Active",
+    },
 
-  {
-    id: 2,
-    name: "Marcus Chen",
-    avatar: "https://i.pravatar.cc/100?img=2",
-    email: "marcus.chen@email.com",
-    orders: 8,
-    totalSpent: 1920,
-    status: "Active",
-  },
+    {
+      id: 2,
+      name: "Marcus Chen",
+      avatar: "https://i.pravatar.cc/100?img=2",
+      email: "marcus.chen@email.com",
+      orders: 8,
+      totalSpent: 1920,
+      status: "Active",
+    },
 
-  {
-    id: 3,
-    name: "Aisha Patel",
-    avatar: "https://i.pravatar.cc/100?img=3",
-    email: "aisha.patel@email.com",
-    orders: 21,
-    totalSpent: 4310,
-    status: "VIP",
-  },
+    {
+      id: 3,
+      name: "Aisha Patel",
+      avatar: "https://i.pravatar.cc/100?img=3",
+      email: "aisha.patel@email.com",
+      orders: 21,
+      totalSpent: 4310,
+      status: "VIP",
+    },
 
-  {
-    id: 4,
-    name: "Sofia Reyes",
-    avatar: "https://i.pravatar.cc/100?img=4",
-    email: "sofia.reyes@email.com",
-    orders: 3,
-    totalSpent: 540,
-    status: "Active",
-  },
+    {
+      id: 4,
+      name: "Sofia Reyes",
+      avatar: "https://i.pravatar.cc/100?img=4",
+      email: "sofia.reyes@email.com",
+      orders: 3,
+      totalSpent: 540,
+      status: "Active",
+    },
 
-  {
-    id: 5,
-    name: "Jordan Wright",
-    avatar: "https://i.pravatar.cc/100?img=5",
-    email: "jordan.wright@email.com",
-    orders: 1,
-    totalSpent: 84,
-    status: "New",
-  },
+    {
+      id: 5,
+      name: "Jordan Wright",
+      avatar: "https://i.pravatar.cc/100?img=5",
+      email: "jordan.wright@email.com",
+      orders: 1,
+      totalSpent: 84,
+      status: "New",
+    },
 
-  {
-    id: 6,
-    name: "Lucas Hartmann",
-    avatar: "https://i.pravatar.cc/100?img=6",
-    email: "lucas.hartmann@email.com",
-    orders: 5,
-    totalSpent: 1240,
-    status: "Active",
-  },
+    {
+      id: 6,
+      name: "Lucas Hartmann",
+      avatar: "https://i.pravatar.cc/100?img=6",
+      email: "lucas.hartmann@email.com",
+      orders: 5,
+      totalSpent: 1240,
+      status: "Active",
+    },
 
-  {
-    id: 7,
-    name: "Emma Johansson",
-    avatar: "https://i.pravatar.cc/100?img=7",
-    email: "emma.j@email.com",
-    orders: 0,
-    totalSpent: 0,
-    status: "Inactive",
-  },
+    {
+      id: 7,
+      name: "Emma Johansson",
+      avatar: "https://i.pravatar.cc/100?img=7",
+      email: "emma.j@email.com",
+      orders: 0,
+      totalSpent: 0,
+      status: "Inactive",
+    },
 
-  {
-    id: 8,
-    name: "Noah Kim",
-    avatar: "https://i.pravatar.cc/100?img=8",
-    email: "noah.kim@email.com",
-    orders: 14,
-    totalSpent: 3005,
-    status: "Active",
-  },
-];
-return customers
+    {
+      id: 8,
+      name: "Noah Kim",
+      avatar: "https://i.pravatar.cc/100?img=8",
+      email: "noah.kim@email.com",
+      orders: 14,
+      totalSpent: 3005,
+      status: "Active",
+    },
+  ];
+  return customers
 
 }
 
-export default function CustomersPage({loaderData}) {
-const customers = loaderData
+export default function CustomersPage({ loaderData }) {
+  const customers = loaderData
   const [activeItem, setActiveItem] = useState("")
   const [search, setSearch] = useState("")
   const [selected, setSelected] = useState("All")
@@ -150,8 +151,10 @@ const customers = loaderData
             {/* add customer */}
 
             <Link to="/add-customer">
-              <DesktopBlackButton label='Add customer' />
+              {/* <DesktopBlackButton label='Add customer' /> */}
+              <Button variant='primary'>Add customer</Button>
             </Link>
+
 
           </div>
 
@@ -191,11 +194,14 @@ const customers = loaderData
             <div className="flex gap-2">
 
               {/* previous */}
-              <PreviousButton />
+              {/* <PreviousButton /> */}
+              <Button variant="outline" size="sm">Previous</Button>
+
               {/* next */}
+              {/* <NextButton /> */}
+              <Button variant="outline" size="sm">Next</Button>
 
 
-              <NextButton />
             </div>
           </div>
 
@@ -221,10 +227,17 @@ const customers = loaderData
 
 
             {/* add customer */}
-            <Link to='/add-customer'>
+            
+             {/* <Link to='/add-customer'>
               <MobileBlackButton label="Add customer" />
 
+            </Link>  */}
+
+            <Link to='/add-customer'>
+              <Button variant="primary" size="sm" className="px-3 py-2">Add customer</Button>
+
             </Link>
+
 
 
           </div>

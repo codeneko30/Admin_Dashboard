@@ -11,6 +11,7 @@ import DesktopOrdersTable from "../../../components/Desktop-OrdersTable";
 import ExportButton from "~/components/ExportButton";
 import NextButton from "~/components/NextButton";
 import PreviousButton from "~/components/PreviousButton";
+import Button from "~/components/Button";
 
 export function loader(){
   const orders = [
@@ -150,7 +151,9 @@ export default function OrdersPage({loaderData}) {
             </div>
 
             {/* export button */}
-            <ExportButton />
+
+            {/* <ExportButton /> */}
+            <Button variant="primary" size="sm" className="sm:px-4 sm:text-sm">Export</Button>
 
           </div>
 
@@ -197,10 +200,13 @@ export default function OrdersPage({loaderData}) {
             <div className="flex gap-2">
 
               {/* previous */}
-              <PreviousButton />
+              {/* <PreviousButton /> */}
+
+              <Button variant='secondary'>previous</Button>
 
               {/* next */}
-              <NextButton />
+              {/* <NextButton /> */}
+              <Button variant='secondary'>Next</Button>
 
             </div>
 
@@ -237,7 +243,9 @@ export default function OrdersPage({loaderData}) {
 
               {/* export button */}
 
-              <ExportButton />
+              {/* <ExportButton /> */}
+
+              <Button variant="primary" size="sm" className="px:3 sm:px-4 sm:text-sm">Export</Button>
 
             </div>
 

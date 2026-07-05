@@ -10,6 +10,7 @@ import PreviousButton from "~/components/PreviousButton";
 import NextButton from "~/components/NextButton";
 import DesktopBlackButton from "~/components/Desktop-BlackButton";
 import MobileBlackButton from "../../../components/Mobile-BlackButton"
+import Button from "~/components/Button";
 
 
 export function loader() {
@@ -147,8 +148,12 @@ export default function ProductsPage({ loaderData }) {
             {/* add product  */}
 
 
-            <Link to="/add-product">
+            {/* <Link to="/add-product">
               <DesktopBlackButton label="Add Product" />
+            </Link> */}
+
+            <Link to="/add-product">
+              <Button variant="primary">Add Product</Button>
             </Link>
 
 
@@ -190,10 +195,12 @@ export default function ProductsPage({ loaderData }) {
 
               {/* previous */}
 
-              <PreviousButton />
+              {/* <PreviousButton /> */}
+              <Button variant="secondary">Previus</Button>
 
               {/* next */}
-              <NextButton />
+              {/* <NextButton /> */}
+              <Button variant="secondary">Next</Button>
 
 
             </div>
@@ -223,8 +230,14 @@ export default function ProductsPage({ loaderData }) {
 
 
             {/* add product */}
-            <Link to='/add-product'>
+
+            {/* <Link to='/add-product'>
               <MobileBlackButton label="Add product" />
+
+            </Link> */}
+
+            <Link to='/add-product'>
+              <Button variant="primary" size="sm">Add product</Button>
 
             </Link>
 

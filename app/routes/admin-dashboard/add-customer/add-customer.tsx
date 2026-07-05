@@ -5,6 +5,7 @@ import BottomNav from "~/components/BottomNav";
 import DesktopBackButton from "~/components/Desktop-BackButton";
 import DesktopSecondaryButton from "~/components/Desktop-SecondaryButton";
 import DesktopBlackButton from "~/components/Desktop-BlackButton";
+import Button from "~/components/Button";
 import CustomerDetails from "~/components/CustomerDetails";
 import Addres from "~/components/Address"
 import CustomerStatus from "~/components/CustomerStatus"
@@ -15,18 +16,18 @@ import { ChevronLeft, Search, ChevronDown } from "lucide-react";
 
 export default function AddCustomerPage() {
     const [form, setForm] = useState({
-        
+
         tags: ""
     });
 
-    
+
     const [activeItem, setActiveItem] = useState("");
 
     const handleChange = (field, value) => {
         setForm((prev) => ({ ...prev, [field]: value }));
     };
 
-   
+
 
     return (
         <div className="min-h-screen bg-gray-50 font-sans">
@@ -47,7 +48,9 @@ export default function AddCustomerPage() {
                 {/* Back button (hidden on mobile) */}
 
 
-                <DesktopBackButton label=' Customers' />
+                {/* <DesktopBackButton label=' Customers' /> */}
+
+                <Button variant="ghost" size="sm" leftIcon={<ChevronLeft size={16} />} className="mb-4 hidden md:inline-flex">Customers</Button>
 
                 {/* ── Header ── */}
                 <div className="mb-6 flex items-center justify-between gap-4">
@@ -57,8 +60,11 @@ export default function AddCustomerPage() {
                     <div className="hidden gap-2 md:flex">
 
 
-                        <DesktopSecondaryButton label=' Discard' />
-                        <DesktopBlackButton label='Save customer' />
+                        {/* <DesktopSecondaryButton label=' Discard' />
+                        <DesktopBlackButton label='Save customer' /> */}
+
+                        <Button variant="secondary">Discard</Button>
+                        <Button variant="primary">Save customer</Button>
 
                     </div>
                 </div>
@@ -99,10 +105,17 @@ export default function AddCustomerPage() {
                 </div>
 
                 {/* ── Mobile bottom Save button (hidden on md+) ── */}
+
                 <div id="1" className="mt-6 md:hidden mb-20">
-                    <button className="w-full rounded-xl bg-gray-900 py-3.5 text-sm font-medium text-white transition-colors hover:bg-gray-800">
+
+                    {/* <button className="w-full rounded-xl bg-gray-900 py-3.5 text-sm font-medium text-white transition-colors hover:bg-gray-800">
                         Save customer
-                    </button>
+                    </button> */}
+
+                    <Button fullWidth>
+                        Save customer
+                    </Button>
+
                 </div>
 
                 <div id="2">

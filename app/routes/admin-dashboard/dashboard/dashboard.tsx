@@ -5,6 +5,7 @@ import BottomNav from "~/components/BottomNav";
 import DesktopOrdersTable from "~/components/Desktop-OrdersTable";
 import MobileOrdersTable from "~/components/Mobile-OrdersTable";
 import ExportButton from "~/components/ExportButton";
+import Button from "~/components/Button";
 import Stats from "./_components/Stats";
 import Revenue from "~/components/Revenue";
 
@@ -131,7 +132,9 @@ export default function DashboardPage({loaderData}) {
             </div>
 
             {/* export button */}
-            <ExportButton />
+            {/* <ExportButton /> */}
+
+            <Button variant='primary'>Export</Button>
 
 
           </div>
@@ -144,6 +147,7 @@ export default function DashboardPage({loaderData}) {
           <DesktopOrdersTable data={orders} />
 
         </main>
+        
 
       </div>
 
@@ -164,7 +168,11 @@ export default function DashboardPage({loaderData}) {
             </div>
 
             {/* export buttn */}
-            <ExportButton />
+
+            {/* <ExportButton /> */}
+
+            <Button variant="primary" size="sm" className="px-3 sm:py-4 sm:text-sm">Export</Button>
+
 
 
           </div>

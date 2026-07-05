@@ -7,6 +7,7 @@ import SettingsTabs from "./_components/SettingsTabs"
 import StoreProfile from "./_components/StoreProfile"
 import StoreAddress from "./_components/StoreAddress";
 import Branding from "~/components/Branding ";
+import Button from "~/components/Button";
 
 
 
@@ -96,9 +97,14 @@ export default function Settings() {
                         {/* Save button (Mobile only) */}
 
                         <div id="1" className="sm:hidden  rounded-xl p-4 mb-20 ">
-                            <button className="w-full bg-gray-900 text-white px-4 py-2 rounded-lg text-sm">
+
+                            {/* <button className="w-full bg-gray-900 text-white px-4 py-2 rounded-lg text-sm">
                                 Save changes
-                            </button>
+                            </button> */}
+
+                            <Button fullWidth>  Save changes</Button>
+
+
                         </div>
 
                         <div id="2">
