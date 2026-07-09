@@ -1,9 +1,8 @@
 
 
 import { useState } from "react";
-// import DesktopBlackButton from "./Desktop-BlackButton";
+import Button from "~/components/Button";
 
-import DesktopBlackButton from "~/components/Desktop-BlackButton";
 
 export default function StoreAddress() {
  
@@ -104,7 +103,8 @@ export default function StoreAddress() {
       <div className="hidden sm:flex justify-end mt-5">
 
        
-        <DesktopBlackButton label='Save changes'/>
+        
+        <Button variant="primary">Save changes</Button>
 
       </div>
     </div>

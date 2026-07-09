@@ -156,8 +156,8 @@ export default function OrdersPageResponsive() {
                                     <tr
                                         key={order.id}
                                         className={`hover:bg-gray-50 ${index !== filteredOrders.length - 1
-                                                ? "border-b border-gray-100"
-                                                : ""
+                                            ? "border-b border-gray-100"
+                                            : ""
                                             }`}
                                     >
                                         <td className="px-4 py-3">

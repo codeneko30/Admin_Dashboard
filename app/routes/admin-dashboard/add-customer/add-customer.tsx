@@ -2,9 +2,8 @@
 import { useState } from "react";
 import Sidebar from "~/components/Sidebar";
 import BottomNav from "~/components/BottomNav";
-import DesktopBackButton from "~/components/Desktop-BackButton";
-import DesktopSecondaryButton from "~/components/Desktop-SecondaryButton";
-import DesktopBlackButton from "~/components/Desktop-BlackButton";
+
+
 import Button from "~/components/Button";
 import CustomerDetails from "~/components/CustomerDetails";
 import Addres from "~/components/Address"

@@ -8,9 +8,7 @@ import Sidebar from "~/components/Sidebar";
 import BottomNav from "~/components/BottomNav";
 import Items from "./_components/Items";
 import Timeline from "./_components/TimeLine";
-import DesktopBackButton from "~/components/Desktop-BackButton"
-import DesktopBlackButton from "~/components/Desktop-BlackButton";
-import DesktopSecondaryButton from "~/components/Desktop-SecondaryButton"
+
 import Button from "~/components/Button";
 import {
   ChevronLeft,

@@ -6,9 +6,7 @@
 import { useState } from "react";
 import Sidebar from "~/components/Sidebar";
 import BottomNav from "~/components/BottomNav";
-import DesktopBlackButton from "~/components/Desktop-BlackButton";
-import DesktopSecondaryButton from "~/components/Desktop-SecondaryButton"
-import DesktopBackButton from "~/components/Desktop-BackButton"
+
 import Button from "~/components/Button";
 import Customer_Details_Stats from "./_components/Customer-Details-Status";
 import RecentOrders from "./_components/RecentOrders";
