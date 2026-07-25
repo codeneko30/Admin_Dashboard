@@ -214,8 +214,10 @@ export default function CustomersPage({ loaderData }) {
               Showing 1–{filteredCustomers.length} of {totalCustomers.toLocaleString()} customers
             </p>
             <div className="flex gap-2">
-              <Button variant="outline" size="sm">Previous</Button>
-              <Button variant="outline" size="sm">Next</Button>
+              
+              <Button variant="secondary">Previous</Button>
+              <Button variant="secondary">Next</Button>
+
             </div>
           </div>
         </main>

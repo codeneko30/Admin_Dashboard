@@ -113,7 +113,7 @@ export default function BottomNav() {
     {
       label: "Dashboard",
       icon: LayoutGrid,
-      path: "/",
+      path: "/dashboard",
     },
     {
       label: "Orders",

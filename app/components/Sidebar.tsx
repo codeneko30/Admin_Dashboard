@@ -1,3 +1,139 @@
+
+import {
+  LayoutDashboard,
+  ShoppingCart,
+  Package,
+  Users,
+  Settings,
+
+  ChevronLeft,
+} from "lucide-react";
+
+import { NavLink } from "react-router";
+
+export default function Sidebar() {
+  const navItems = [
+    { name: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+    { name: "Orders", icon: ShoppingCart, path: "/orders" },
+    { name: "Products", icon: Package, path: "/products" },
+    { name: "Customers", icon: Users, path: "/customers" },
+  ];
+
+  const navClass = ({
+    isActive,
+  }: {
+    isActive: boolean;
+  }) =>
+    `mb-1 flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm transition ${isActive
+      ? "bg-gray-100 text-black font-medium"
+      : "text-gray-600 hover:bg-gray-50"
+    }`;
+
+  return (
+    <aside className="hidden md:flex fixed left-0 top-0 h-screen w-56 flex-col border-r border-gray-200 bg-white">
+
+      {/* Logo */}
+      <div className="flex items-center gap-2 border-b border-gray-100 px-4 py-4">
+        <div className="flex h-6 w-6 items-center justify-center rounded bg-black">
+          <Package size={14} className="text-white" />
+        </div>
+
+        {/* <span className="text-sm font-semibold">
+            Apex Store
+          </span> */}
+
+        <span className="text-sm font-semibold text-black">
+          Apex Store
+        </span>
+
+
+      </div>
+
+      {/* Nav */}
+      <nav className="flex-1 px-3 py-3">
+
+        {navItems.map(({ name, icon: Icon, path }) => (
+
+          <NavLink
+            key={name}
+            to={path}
+            end={path === "/"}
+            className={navClass}
+          >
+            <Icon size={16} />
+            <span>{name}</span>
+          </NavLink>
+
+        ))}
+
+      </nav>
+
+      {/* Bottom */}
+      <div className="px-3 py-2">
+        <button className="rounded-md p-2 text-gray-500 hover:bg-gray-50">
+          <ChevronLeft size={16} />
+        </button>
+      </div>
+
+      {/* Settings + Help */}
+      <div className="border-t border-gray-100 px-3 py-3">
+
+        <NavLink
+          to="/settings"
+          className={navClass}
+        >
+          <Settings size={16} />
+          Settings
+        </NavLink>
+
+        {/* <NavLink
+            to="/help"
+            className={navClass}
+          >
+            <HelpCircle size={16} />
+            Help
+          </NavLink> */}
+
+      </div>
+
+      {/* User */}
+      <div className="border-t border-gray-100 px-3 py-3">
+
+        <div className="flex items-center gap-3">
+
+          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gray-300 text-xs font-semibold">
+            JC
+          </div>
+
+          <div>
+            <p className="text-xs font-medium">
+              Jane Cooper
+            </p>
+
+            <p className="text-xs text-gray-500">
+              jane@apexstore.io
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
 // import {
 //     LayoutDashboard,
 //     ShoppingCart,
@@ -112,121 +248,7 @@
 
 
 
-import {
-    LayoutDashboard,
-    ShoppingCart,
-    Package,
-    Users,
-    Settings,
-    HelpCircle,
-    ChevronLeft,
-  } from "lucide-react";
-  
-  import { NavLink } from "react-router";
-  
-  export default function Sidebar() {
-    const navItems = [
-      { name: "Dashboard", icon: LayoutDashboard, path: "/" },
-      { name: "Orders", icon: ShoppingCart, path: "/orders" },
-      { name: "Products", icon: Package, path: "/products" },
-      { name: "Customers", icon: Users, path: "/customers" },
-    ];
-  
-    const navClass = ({
-      isActive,
-    }: {
-      isActive: boolean;
-    }) =>
-      `mb-1 flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm transition ${
-        isActive
-          ? "bg-gray-100 text-black font-medium"
-          : "text-gray-600 hover:bg-gray-50"
-      }`;
-  
-    return (
-      <aside className="hidden md:flex fixed left-0 top-0 h-screen w-56 flex-col border-r border-gray-200 bg-white">
-  
-        {/* Logo */}
-        <div className="flex items-center gap-2 border-b border-gray-100 px-4 py-4">
-          <div className="flex h-6 w-6 items-center justify-center rounded bg-black">
-            <Package size={14} className="text-white" />
-          </div>
-  
-          <span className="text-sm font-semibold">
-            Apex Store
-          </span>
-        </div>
-  
-        {/* Nav */}
-        <nav className="flex-1 px-3 py-3">
-  
-          {navItems.map(({ name, icon: Icon, path }) => (
-  
-            <NavLink
-              key={name}
-              to={path}
-              end={path === "/"}
-              className={navClass}
-            >
-              <Icon size={16} />
-              <span>{name}</span>
-            </NavLink>
-  
-          ))}
-  
-        </nav>
-  
-        {/* Bottom */}
-        <div className="px-3 py-2">
-          <button className="rounded-md p-2 text-gray-500 hover:bg-gray-50">
-            <ChevronLeft size={16} />
-          </button>
-        </div>
-  
-        {/* Settings + Help */}
-        <div className="border-t border-gray-100 px-3 py-3">
-  
-          <NavLink
-            to="/settings"
-            className={navClass}
-          >
-            <Settings size={16} />
-            Settings
-          </NavLink>
-  
-          {/* <NavLink
-            to="/help"
-            className={navClass}
-          >
-            <HelpCircle size={16} />
-            Help
-          </NavLink> */}
-  
-        </div>
-  
-        {/* User */}
-        <div className="border-t border-gray-100 px-3 py-3">
-  
-          <div className="flex items-center gap-3">
-  
-            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gray-300 text-xs font-semibold">
-              JC
-            </div>
-  
-            <div>
-              <p className="text-xs font-medium">
-                Jane Cooper
-              </p>
-  
-              <p className="text-xs text-gray-500">
-                jane@apexstore.io
-              </p>
-            </div>
-  
-          </div>
-  
-        </div>
-  
-      </aside>
-    );
-  }
+
+
+// block-C
+
