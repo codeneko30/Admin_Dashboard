@@ -2,7 +2,7 @@
 
 
 
-
+import { Link } from "react-router";
 import { useState } from "react";
 import Sidebar from "~/components/Sidebar";
 import BottomNav from "~/components/BottomNav";
@@ -67,13 +67,26 @@ export default function OrderDetails({ loaderData }) {
       {/* ── Mobile sticky header (hidden on md+) ── */}
       <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 bg-white px-4 py-3 md:hidden">
 
+       
+
         {/* <button className="text-gray-500" aria-label="Back">
           <ChevronLeft size={20} />
         </button> */}
 
-        <button className="text-gray-500" aria-label="Back">
+
+
+        <Link
+          to="/orders"
+          className="text-gray-500 hover:text-gray-800 transition"
+          aria-label="Back"
+        >
           <ChevronLeft size={20} />
-        </button>
+        </Link>
+
+
+
+
+
 
         <h1 className="text-base font-semibold text-gray-900">
           Order #{order.number}
@@ -218,10 +231,10 @@ export default function OrderDetails({ loaderData }) {
           </Button>
 
           <Button className="flex-1">
-          Mark as fulfilled
+            Mark as fulfilled
 
           </Button>
-         
+
 
         </div>
 

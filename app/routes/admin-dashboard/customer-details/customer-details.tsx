@@ -6,7 +6,7 @@
 import { useState } from "react";
 import Sidebar from "~/components/Sidebar";
 import BottomNav from "~/components/BottomNav";
-
+import { Link } from "react-router";
 import Button from "~/components/Button";
 import Customer_Details_Stats from "./_components/Customer-Details-Status";
 import RecentOrders from "./_components/RecentOrders";
@@ -45,13 +45,16 @@ export default function CustomerDetailPage({ loaderData }) {
             {/* ── Mobile sticky header (hidden on md+) ── */}
             <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 bg-white px-4 py-3 md:hidden">
 
-                {/* <button className="text-gray-500" aria-label="Back">
-                    <ChevronLeft size={20} />
-                </button> */}
 
-                <Button className=" bg-white text-gray-500" aria-label="Back">
+                {/* <Button className=" bg-white text-gray-500" aria-label="Back">
                     <ChevronLeft size={20} />
-                </Button>
+                </Button> */}
+
+                <Link to="/customers" aria-label="Back">
+                    <Button className="bg-white text-gray-500">
+                        <ChevronLeft size={20} />
+                    </Button>
+                </Link>
 
                 <h1 className="text-base font-semibold text-gray-900">Customer</h1>
                 <Search size={20} className="text-gray-400" />
@@ -146,14 +149,7 @@ export default function CustomerDetailPage({ loaderData }) {
 
                 {/* ── Mobile bottom action bar (hidden on md+) ── */}
                 <div id="1" className="mt-6 flex gap-3 md:hidden mb-20">
-{/* 
-                    <button className="flex-1 rounded-2xl border border-gray-300 py-3.5 text-sm font-medium text-gray-700 hover:bg-gray-50">
-                        Edit
-                    </button>
 
-                    <button className="flex-1 rounded-2xl bg-gray-900 py-3.5 text-sm font-medium text-white hover:bg-gray-800">
-                        Email customer
-                    </button> */}
 
                     <Button variant="secondary" className="flex-1">
                         Edit
